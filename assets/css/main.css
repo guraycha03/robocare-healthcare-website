@@ -30,11 +30,11 @@
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
   --nav-color: #4b5761;  /* The default color of the main navmenu links */
-  --nav-hover-color: #5ea2dd; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-hover-color: #90c9ff; /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #2c4964; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #1977cc; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-dropdown-hover-color: #70b2eb; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -174,7 +174,7 @@ h6 {
 /* Contact & Appointment Form Messages */
 .fake-form .error-message {
   display: none;
-  background: #df1529;
+  background: #ffffff;
   color: #ffffff;
   text-align: left;
   padding: 15px;
@@ -405,7 +405,7 @@ h6 {
     height: 2px;
     bottom: -6px;
     left: 0;
-    background-color: var(--nav-hover-color);
+    background-color: rgb(165, 208, 233);
     visibility: hidden;
     width: 0px;
     transition: all 0.3s ease-in-out 0s;
@@ -421,7 +421,7 @@ h6 {
   .navmenu li:hover>a,
   .navmenu .active,
   .navmenu .active:focus {
-    color: var(--nav-hover-color);
+    color: rgb(74, 126, 156);
   }
 
   .navmenu .dropdown ul {
@@ -485,9 +485,9 @@ h6 {
   /* CTA Button - Make an Appointment (Refined and Forceful) */
 header nav ul li a.btn-appointment { /* More specific selector */
   display: inline-block;
-  padding: 10px 25px; /* Adjust padding as needed */
-  background: #acc6e9;
-  color: #f8f8ff;
+  padding: 10px 25px;
+  background: #90cbfc;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 600;
   border-radius: 25px;
@@ -495,17 +495,25 @@ header nav ul li a.btn-appointment { /* More specific selector */
   text-decoration: none !important; /* Force remove underline */
   transition: all 0.3s ease-in-out;
   border: 2px solid transparent;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.4rem #dfd9d9;
+  cursor: pointer;
   letter-spacing: 0.5px;
   line-height: 1;
 }
 
+}
+header nav ul li a.btn-appointment:disabled{
+  cursor: auto;
+  color: grey;
+  
+  }
+
 /* Hover Effect */
 header nav ul li a.btn-appointment:hover {
   background: #ffffff;
-  transform: translateY(-2px);
+  transform: translateY(0.2rem);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  border-color: #9dcaf5;
+  border-color: #f1f8ff;
 }
 
 /* Active (Click) Effect */
@@ -517,12 +525,6 @@ header nav ul li a.btn-appointment:active {
 /* Force spacing with padding directly on the <a> tag */
 .btn-appointment {
     padding: 10px 25px !important;
-}
-
-
-
-  
-  
 }
 
 /* Mobile Navigation */
@@ -654,10 +656,9 @@ header nav ul li a.btn-appointment:active {
 
 
 /*--------------------------------------------------------------
-# AI Chatbot - Fixed Version
+# AI Chatbot
 --------------------------------------------------------------*/
 
-/* Chatbot Floating Icon */
 /* Chatbot Floating Icon */
 #chatbot-toggle {
   position: fixed;
@@ -665,15 +666,25 @@ header nav ul li a.btn-appointment:active {
   right: 20px;
   width: 60px;
   height: 60px;
-  border-radius: 50%;
-  background: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  cursor: grab; /* Change cursor to grab */
+  max-width: 66px;
+  max-height: 66px;
+  background: none; /* No background */
+  border: none; /* No border */
+  box-shadow: none;
+  cursor: grab; 
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1100;
-  transition: transform 0.2s ease; /* Smooth transition */
+  transition: transform 0.2s ease; 
+  overflow: hidden;
+}
+
+#chatbot-toggle img {
+  width: 100%;  /* Makes sure the image scales within the button */
+  height: auto; /* Keeps aspect ratio */
+  width: 60px !important;
+  height: 60px !important;
 }
 
 /* Add Shake Animation */
@@ -728,7 +739,7 @@ header nav ul li a.btn-appointment:active {
 
 /* Close Button */
 .chatbot-close {
-  background: none;
+  background:none;
   border: none;
   color: white;
   font-size: 18px;
@@ -756,7 +767,7 @@ header nav ul li a.btn-appointment:active {
 #chatbot-send {
   margin-left: 5px;
   padding: 8px 12px;
-  background: #007bff;
+  background: #4f9aeb;
   color: white;
   border: none;
   cursor: pointer;
@@ -800,7 +811,6 @@ header nav ul li a.btn-appointment:active {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-
 /* Bot Message */
 .bot-message {
   background: #f1f1f1; /* Light gray background */
@@ -822,17 +832,12 @@ header nav ul li a.btn-appointment:active {
   flex-direction: column;
 }
 
-
-
-
-
-
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
 .footer {
-  color: var(--default-color);
-  background-color: var(--background-color);
+  color: white;
+  background-color: rgb(118, 166, 199);
   border-top: 1px solid color-mix(in srgb, var(--accent-color), transparent 75%);
   font-size: 14px;
   position: relative;
@@ -853,7 +858,7 @@ header nav ul li a.btn-appointment:active {
 }
 
 .footer .footer-about .logo span {
-  color: var(--heading-color);
+  color: rgb(40, 97, 136);
   font-family: var(--heading-font);
   font-size: 26px;
   font-weight: 700;
@@ -872,16 +877,16 @@ header nav ul li a.btn-appointment:active {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
+  border: white;
   font-size: 16px;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  color: white;
   margin-right: 10px;
   transition: 0.3s;
 }
 
 .footer .social-links a:hover {
-  color: var(--accent-color);
-  border-color: var(--accent-color);
+  color: rgb(35, 75, 121);
+  border-color: white;
 }
 
 .footer h4 {
@@ -918,14 +923,14 @@ header nav ul li a.btn-appointment:active {
 }
 
 .footer .footer-links ul a {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: white;
   display: inline-block;
   line-height: 1;
   padding-left: 2px;
 }
 
 .footer .footer-links ul a:hover {
-  color: var(--accent-color);
+  color: rgb(31, 64, 107);
 }
 
 .footer .footer-contact p {
@@ -935,7 +940,7 @@ header nav ul li a.btn-appointment:active {
 .footer .copyright {
   padding-top: 25px;
   padding-bottom: 25px;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-top: white;
 }
 
 .footer .copyright p {
@@ -1378,7 +1383,7 @@ section,
 .services .service-item {
   background-color: var(--surface-color);
   text-align: center;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  border: 3px solid color-mix(in srgb, var(--default-color), transparent 85%);
   padding: 80px 20px;
   transition: all ease-in-out 0.3s;
   height: 100%;
@@ -1430,7 +1435,7 @@ section,
 }
 
 .services .service-item:hover {
-  background: var(--accent-color);
+  background: rgb(129, 193, 236);
   border-color: var(--accent-color);
 }
 
@@ -2009,7 +2014,7 @@ section,
 
 .error-message {
   display: none;
-  color: red;
+  color: rgb(255, 255, 255);
   margin-top: 10px;
 }
 
@@ -2034,7 +2039,7 @@ section,
 
 .error-message {
   display: none;
-  color: #ff4d4d;
+  color: #ffffff;
   font-size: 0.9em;
   margin-top: 5px;
 }
@@ -2049,7 +2054,7 @@ section,
 
 /* CSS for error messages next to input fields */
 .error-message-input {
-  color: #dc3545;
+  color: #ffffff;
   font-size: 0.8em;
   display: block;
   margin-top: 5px;

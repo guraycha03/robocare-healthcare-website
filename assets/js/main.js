@@ -307,6 +307,7 @@
           "good morning|morning|gm": "Good morning! How can I assist?",
           "good night|night|gn": "Good night! Take care.",
           "covid|corona|pandemic": "We provide information and support for COVID-19.",
+          "what are you|are you robot|are you real": "Hi there! How can I assist?",
           "symptoms|sick|not feeling well": "Please describe your symptoms, and I can assist.",
           "account|profile|settings": "You can manage your account through our portal.",
           "test results|lab report|medical report": "Test results are available in your account.",
