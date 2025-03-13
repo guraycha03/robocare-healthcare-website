@@ -29,7 +29,7 @@
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #2c4964;  /* The default color of the main navmenu links */
+  --nav-color: #4b5761;  /* The default color of the main navmenu links */
   --nav-hover-color: #5ea2dd; /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
@@ -226,7 +226,7 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  color: rgb(130, 170, 255);
+  color: rgb(154, 186, 255);
   transition: all 0.5s;
   z-index: 997;
   background-color: var(--background-color);
@@ -351,6 +351,7 @@ h6 {
 @media (min-width: 1200px) {
   .navmenu {
     padding: 0;
+
   }
 
   .navmenu ul {
@@ -1219,9 +1220,15 @@ section,
   text-align: center;
   border-radius: 10px;
   background: color-mix(in srgb, var(--surface-color), transparent 20%);
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   padding: 40px 30px;
   width: 100%;
+}
+
+.hero .content .icon-box:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .hero .content .icon-box i {
@@ -1237,28 +1244,41 @@ section,
 
 .hero .content .icon-box p {
   font-size: 15px;
-  color: rgb(87, 86, 86);
+  color: rgb(63, 63, 63);
 }
 .core-values {
   list-style: none;
   padding: 0;
 }
 
+/* Core values container hover effect */
 .core-values li {
   display: flex;
   align-items: center;
+  justify-content: flex-start; /* Ensures left alignment */
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.core-values li:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.5);
+  font-weight: 700;
 }
 
 .letter {
   font-weight: bold;
-  width: 20px; /* Fixed width for alignment */
+  width: 20px; 
   text-align: right;
   margin-right: 5px;
 }
 
 .text {
+  flex: 1; /* Takes remaining space to ensure left alignment */
   text-align: left;
 }
+
 
 
 /*--------------------------------------------------------------
@@ -1567,7 +1587,7 @@ section,
 # Doctors Section
 --------------------------------------------------------------*/
 .doctors .team-member {
-  background-color: var(--surface-color);
+  background-color: rgb(201, 219, 236);
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   position: relative;
   border-radius: 5px;
@@ -1697,8 +1717,8 @@ section,
   position: relative;
   padding: 20px;
   margin-bottom: 15px;
-  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 75%);
-  border-radius: 5px;
+  border: 3px solid rgb(182, 217, 245);
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -1786,7 +1806,8 @@ section,
 
 .testimonials .swiper {
   box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.05);
-  background-color: var(--surface-color);
+  background-color: rgb(217, 232, 241);
+  border-radius: 10px;
 }
 
 .testimonials .testimonials-carousel,
@@ -1826,7 +1847,7 @@ section,
 }
 
 .testimonials .testimonial-item .stars i {
-  color: #fffc56;
+  color: #fff569;
   margin: 0 1px;
 }
 
@@ -1967,7 +1988,7 @@ section,
 
 .contact .php-email-form button[type=submit] {
   color: white;
-  background: #007bff;
+  background: #3e93ee;
   border: 0;
   padding: 10px 36px;
   transition: 0.4s;
