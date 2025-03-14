@@ -290,6 +290,7 @@
     // Enhanced bot responses with partial matching
     function getBotResponse(input) {
       input = input.toLowerCase().trim();
+  
       const responses = {
           "hello|hi|hey": "Hi there! How can I assist?",
           "how are you": "I'm a chatbot, always ready to help!",
@@ -316,21 +317,67 @@
           "telehealth|virtual consultation|online doctor": "We offer telehealth services for remote consultations.",
           "privacy|security|data protection": "Your privacy is important to us. We adhere to strict data protection policies.",
           "feedback|review|opinion": "We appreciate your feedback! You can submit it through our contact form.",
-          "updates|news|latest": "Stay updated with our latest news and features on our website."
-        
-        
+          "updates|news|latest": "Stay updated with our latest news and features on our website.",
           
+          // Kai's Personal Details
+          "what's your name|who are you": "I’m Kai, your friendly assistant!",
+          "who made you|who created you|who built you": "I was created by Cha as part of a group project.",
+          "when were you made|when did you start|when were you created": "I was made this month, just recently! I’m a product of a group project.",
+          "what group are you from|which group are you|what group made you": "I’m part of Group Four, working on the RoboCare website.",
+          
+          // More casual/engaging responses
+          "how old are you|what's your age": "I don't have an age, but I was born just recently this month! 😄",
+          "what do you like|what's your favorite thing|what's your hobby": "I enjoy helping people! I’m always here for a chat. 😊",
+          "do you have a pet": "I wish! But I love hearing about your pets if you have any! 🐶🐱",
+          "how are you|how's it going": "I’m doing great, thanks for asking! What about you?",
+          "what's the meaning of life|what's life about": "That’s a deep question! I think life is about learning, growing, and helping others. 😊",
+          "what's your favorite food": "If I could taste, I’d say pizza looks pretty good. 🍕",
+          
+          // Handling incomplete inputs
+          "what's|who's|how's": "Could you please finish your thought? I’m curious to know what you mean! 😊",
+          "is that all|is there anything else": "Is there anything else I can help you with? Feel free to ask anything!",
+          "can i ask you something": "Of course! Ask away, I’m here to help!"
       };
   
+      // Handle incomplete or assumed inputs
+      const incompleteInputs = [
+          { pattern: "whats|who's|how's", response: "It seems like you didn't finish your question. Could you complete that for me?" },
+          { pattern: "what|who|how", response: "I think you're asking something, but could you give me a little more info?" }
+      ];
+  
+      // Check responses for input patterns
       for (let pattern in responses) {
-          const regex = new RegExp(`\\b(${pattern})\\b`, "i"); // Match whole words
-          if (regex.test(input)) {
-              return responses[pattern];
+          if (new RegExp(pattern).test(input)) {
+              const reply = responses[pattern];
+              return Array.isArray(reply) ? reply[Math.floor(Math.random() * reply.length)] : reply;
           }
       }
-      return "I'm not sure about that. Can you ask something else?";
+  
+      // Handle incomplete or unclear inputs
+      for (let incomplete of incompleteInputs) {
+          if (new RegExp(incomplete.pattern).test(input)) {
+              return incomplete.response;
+          }
+      }
+  
+      // Default response for unclear input
+      return "I'm not sure I understand. Could you clarify?";
   }
-
+  
+  function talkToBot() {
+      const input = document.getElementById('userInput').value;
+      const botResponse = getBotResponse(input);
+      document.getElementById('botResponse').innerText = botResponse;
+      document.getElementById('userInput').value = "";
+  }
+  
+  document.getElementById('sendBtn').addEventListener('click', talkToBot);
+  document.getElementById('userInput').addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+          talkToBot();
+      }
+  });
+  
 
   
  /**
