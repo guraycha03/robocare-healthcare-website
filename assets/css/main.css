@@ -2114,6 +2114,11 @@ button[type="submit"] {
   /* Add your styles here */
 }
 
+
+
+
+/*--------------------------------------------------------------
+
 .section, .content, .hero, .about, .services, .departments, .doctors, .faq, .contact {
   display: block !important;
 }
@@ -2126,3 +2131,6 @@ button[type="submit"] {
 .section, .content, .hero, .about, .services, .departments, .doctors, .faq, .contact {
   position: relative !important;
 }
+
+
+--------------------------------------------------------------*/
