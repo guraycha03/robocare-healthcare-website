@@ -1,0 +1,21 @@
+{
+  "name": "robocare-healthcare-website",
+  "version": "1.0.0",
+  "description": "About the Project:\r This is an informative website about AI and Automation in Healthcare. We are using a Bootstrap template downloaded from the official Bootstrap website and customizing it to fit our project needs. The website provides insights into how AI is transforming the healthcare industry, improving diagnostics, treatment, and patient care.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guraycha03/robocare-healthcare-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/guraycha03/robocare-healthcare-website/issues"
+  },
+  "homepage": "https://github.com/guraycha03/robocare-healthcare-website#readme"
+}
