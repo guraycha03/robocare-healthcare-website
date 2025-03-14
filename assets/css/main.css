@@ -2113,3 +2113,16 @@ button[type="submit"] {
 .starter-section {
   /* Add your styles here */
 }
+
+.section, .content, .hero, .about, .services, .departments, .doctors, .faq, .contact {
+  display: block !important;
+}
+
+.section, .content {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.section, .content, .hero, .about, .services, .departments, .doctors, .faq, .contact {
+  position: relative !important;
+}
