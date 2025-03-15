@@ -314,6 +314,7 @@
           "what are you|are you robot|are you real|are you human": "I am your RoboCare assist!",
 
           // questions about patient's symptoms
+          "i need your help|your help|guidance|guide": "You're very much free to ask me for help. How can I help you?",
           "symptoms|sick|not feeling well|not well|feel bad|feeling bad": "Please describe your symptoms, and I can assist.",
           "account|profile|settings": "You can manage your account through our portal.",
           "test results|lab report|medical report|result": "Test results are available in your account.",
