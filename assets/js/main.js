@@ -545,9 +545,7 @@
         return phoneRegex.test(phone);
     }
 
-    // --- Event Listeners ---
-
-    // Handle form submission
+    // form submission
     appointmentForm.addEventListener("submit", handleFormSubmit);
 
     // --- Department Selection Handling ---
@@ -586,57 +584,25 @@
         const sentMessage = document.querySelector(".sent-message");
     
         contactForm.addEventListener("submit", function (event) {
-            event.preventDefault();
+            event.preventDefault(); 
     
+            // Show loading
             loadingMessage.style.display = "block";
             errorMessage.style.display = "none";
             sentMessage.style.display = "none";
     
-            const formData = new FormData(contactForm);
-
-            fetch("assets/php/contact_process.php", {
-              method: "POST",
-              body: formData,
-            })
-                .then((response) => {
-                    loadingMessage.style.display = "none";
-                    if (response.ok) {
-                        return response.text();
-                    } else {
-                        throw new Error("Something went wrong!");
-                    }
-                })
-                .then((data) => {
-                    sentMessage.style.display = "block";
-                    sentMessage.textContent = data;
-                    contactForm.reset();
-                })
-                .catch((error) => {
-                    errorMessage.style.display = "block";
-                    errorMessage.textContent = error.message;
-                });
+            setTimeout(function () {
+                // Ensure loading disappears
+                loadingMessage.style.display = "none";
+                sentMessage.style.display = "block"; // Show success message
+                contactForm.reset(); 
+    
+                // Hide success message after a few seconds
+                setTimeout(() => {
+                    sentMessage.style.display = "none";
+                }, 5000);
+            }, 2000);
         });
     });
-
-    // display a confirmation that the message has been sent
-    document.addEventListener("DOMContentLoaded", function () {
-      const contactForm = document.getElementById("fake-contact-form");
-      const loadingMessage = document.querySelector(".loading");
-      const sentMessage = document.querySelector(".sent-message");
-  
-      contactForm.addEventListener("submit", function (event) {
-          event.preventDefault(); // Prevent actual form submission
-  
-          loadingMessage.style.display = "block";
-          sentMessage.style.display = "none";
-  
-          // Simulate loading (e.g., 2 seconds)
-          setTimeout(function () {
-              loadingMessage.style.display = "none";
-              sentMessage.style.display = "block";
-              contactForm.reset(); // Clear the form
-          }, 2000); // 2000 milliseconds = 2 seconds
-      });
-  });
-
+    
   });
