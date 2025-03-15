@@ -2030,60 +2030,6 @@ section,
   display: none;
 }
 
-/* Contact Form Style */
-
-/* Initial display for message elements */
-.loading {
-  display: none;
-}
-
-.error-message {
-  display: none;
-  color: #ffffff;
-  font-size: 0.9em;
-  margin-top: 5px;
-}
-
-.sent-message {
-  display: none;
-  color: #28a745;
-  font-weight: bold;
-  font-size: 1em;
-  margin-top: 10px;
-}
-
-/* CSS for error messages next to input fields */
-.error-message-input {
-  color: #ffffff;
-  font-size: 0.8em;
-  display: block;
-  margin-top: 5px;
-}
-
-/* Example Styling for Form Elements (Optional) */
-.form-control {
-  display: block;
-  width: 100%;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.form-control:focus {
-  color: #495057;
-  background-color: #fff;
-  border-color: #80bdff;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
 /* Example Styling for Buttons (Optional) */
 button {
   padding: 0.5rem 1rem;
@@ -2096,19 +2042,10 @@ button {
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
-button:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
-}
-
 button[type="submit"] {
   /* Style the submit button differently if needed */
   font-weight: bold;
 }
-
-
-
-
 
 /*--------------------------------------------------------------
 

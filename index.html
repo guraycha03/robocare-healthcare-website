@@ -1121,7 +1121,8 @@
                   </div>
                   </div>
               <div class="col-lg-8">
-                  <form id="fake-contact-form" class="php-email-form" action="#">
+                <form id="fake-contact-form" class="php-email-form" action="http://localhost/robocare_forms/contact_form/contact_process.php" method="post">
+   
                       <div class="row gy-4">
                           <div class="col-md-6">
                               <input type="text" name="name" class="form-control"
@@ -1141,19 +1142,18 @@
                           </div>
                           <div class="col-md-12 text-center">
                               <div class="loading">Loading...</div>
-                              <div class="error-message" style="display: none; color: red;">
-                                  Something went wrong!</div>
+                              
                               <div class="sent-message" style="display: none; color: green; font-weight: bold;">
                                   ✅ Your message has been sent successfully! (Fake)
                               </div>
                               <button type="submit">Send Message</button>
                           </div>
                       </div>
-                  </form>
+                </form>
               </div>
           </div>
       </div>
-  </section>
+</section>
         
         
           <!-- End Contact Form -->

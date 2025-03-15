@@ -392,8 +392,8 @@
       document.getElementById('userInput').value = "";
   }
   
-  document.getElementById('sendBtn').addEventListener('click', talkToBot);
-  document.getElementById('userInput').addEventListener('keypress', function(event) {
+  document.getElementById('chatbot-send').addEventListener('click', talkToBot);
+  document.getElementById('chatbot-input').addEventListener('keypress', function(event) {
       if (event.key === 'Enter') {
           talkToBot();
       }
@@ -577,123 +577,66 @@
 
 
 
-  
-  // Contact Form
-  document.addEventListener("DOMContentLoaded", function() {
-    // Get references to the form and feedback elements
-    const contactForm = document.getElementById("fake-contact-form");
-    const loadingMessage = document.querySelector(".loading");
-    const errorMessage = document.querySelector(".error-message");
-    const sentMessage = document.querySelector(".sent-message");
 
-    // Add an event listener to the form for the 'submit' event
-    contactForm.addEventListener("submit", function(event) {
-        // Prevent the default form submission action
-        event.preventDefault();
+      //contact form
+      document.addEventListener("DOMContentLoaded", function () {
+        const contactForm = document.getElementById("fake-contact-form");
+        const loadingMessage = document.querySelector(".loading");
+        const errorMessage = document.querySelector(".error-message");
+        const sentMessage = document.querySelector(".sent-message");
+    
+        contactForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+    
+            loadingMessage.style.display = "block";
+            errorMessage.style.display = "none";
+            sentMessage.style.display = "none";
+    
+            const formData = new FormData(contactForm);
 
-        // --- Validation ---
-        // Clear any previous error messages
-        errorMessage.style.display = "none";
-        let isValid = true;
-
-        // Get references to the input fields
-        const nameInput = contactForm.querySelector("[name='name']");
-        const emailInput = contactForm.querySelector("[name='email']");
-        const subjectInput = contactForm.querySelector("[name='subject']");
-        const messageInput = contactForm.querySelector("[name='message']");
-
-        // Validate the name field
-        if (nameInput.value.trim() === "") {
-            displayError("Please enter your name.", nameInput);
-            isValid = false;
-        }
-
-        // Validate the email field
-        if (emailInput.value.trim() === "") {
-            displayError("Please enter your email.", emailInput);
-            isValid = false;
-        } else if (!isValidEmail(emailInput.value.trim())) {
-            displayError("Please enter a valid email address.", emailInput);
-            isValid = false;
-        }
-
-        // Validate the subject field
-        if (subjectInput.value.trim() === "") {
-            displayError("Please enter the subject.", subjectInput);
-            isValid = false;
-        }
-
-        // Validate the message field
-        if (messageInput.value.trim() === "") {
-            displayError("Please enter your message.", messageInput);
-            isValid = false;
-        }
-
-        // If any validation failed, exit the function
-        if (!isValid) {
-            return;
-        }
-
-        // --- Simulated Submission ---
-        // Show the loading message
-        loadingMessage.style.display = "block";
-        errorMessage.style.display = "none";
-        sentMessage.style.display = "none";
-
-        // Simulate a delay (for demonstration purposes)
-        setTimeout(function() {
-            // Hide the loading message
-            loadingMessage.style.display = "none";
-            // Show the success message
-            sentMessage.style.display = "block";
-
-            // Reset the form (clear the input fields)
-            contactForm.reset();
-
-            // Hide the success message after a delay
-            setTimeout(function() {
-                sentMessage.style.display = "none";
-            }, 5000); // Hide after 5 seconds
-        }, 2000); // Simulate 2 seconds of processing
+            fetch("assets/php/contact_process.php", {
+              method: "POST",
+              body: formData,
+            })
+                .then((response) => {
+                    loadingMessage.style.display = "none";
+                    if (response.ok) {
+                        return response.text();
+                    } else {
+                        throw new Error("Something went wrong!");
+                    }
+                })
+                .then((data) => {
+                    sentMessage.style.display = "block";
+                    sentMessage.textContent = data;
+                    contactForm.reset();
+                })
+                .catch((error) => {
+                    errorMessage.style.display = "block";
+                    errorMessage.textContent = error.message;
+                });
+        });
     });
 
-    /**
-     * Displays an error message below the input field.
-     * @param {string} message The error message to display.
-     * @param {HTMLElement} inputElement The input element to display the error next to.
-     */
-    function displayError(message, inputElement) {
-        let errorId = inputElement.id + "-error";
-        let errorElement = document.getElementById(errorId);
-
-        if (!errorElement) {
-            errorElement = document.createElement("div");
-            errorElement.id = errorId;
-            errorElement.className = "error-message-input";
-            inputElement.parentNode.appendChild(inputElement);
-        }
-
-        errorElement.textContent = message;
-
-        // Hide the error message after a few seconds
-        setTimeout(() => {
-            errorElement.textContent = "";
-        }, 5000);
-    }
-
-    /**
-     * Validates email format.
-     * @param {string} email The email to validate.
-     * @returns {boolean} True if the email is valid, false otherwise.
-     */
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-});
-
-
+    // display a confirmation that the message has been sent
+    document.addEventListener("DOMContentLoaded", function () {
+      const contactForm = document.getElementById("fake-contact-form");
+      const loadingMessage = document.querySelector(".loading");
+      const sentMessage = document.querySelector(".sent-message");
   
-
+      contactForm.addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent actual form submission
+  
+          loadingMessage.style.display = "block";
+          sentMessage.style.display = "none";
+  
+          // Simulate loading (e.g., 2 seconds)
+          setTimeout(function () {
+              loadingMessage.style.display = "none";
+              sentMessage.style.display = "block";
+              contactForm.reset(); // Clear the form
+          }, 2000); // 2000 milliseconds = 2 seconds
+      });
+  });
 
   });
