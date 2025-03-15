@@ -354,7 +354,22 @@
           "how are you|how's it going": "I’m doing great, thanks for asking! What about you?",
           "what's the meaning of life|what's life|life about|meaning of life": "That’s a deep question! I think life is about learning, growing, and helping others. 😊",
           "what's your favorite food|food?": "If I could taste, I’d say pizza looks pretty good. 🍕",
-          
+          // users' random inputs
+            "what can you do?": "Greetings. I am Kai, your healthcare assistance chatbot. I can provide information on our services, answer health-related queries, and guide you through website features. How may I assist you today?",
+            "can you understand me?": "Affirmative. Kai's natural language processing is optimized for medical and general inquiries. Please provide clear and concise information for accurate responses.",
+            "where are you from?": "I am a virtual assistant, integrated into the Robocare healthcare platform. My purpose is to provide accessible and reliable healthcare information.",
+            "are you human?": "I am Kai, an AI assistant, designed to support your healthcare needs. While not human, I am programmed with extensive medical knowledge and data.",
+            "you look cute|you're so cute": "Thank you for the observation. My design prioritizes functionality and user-friendliness within the healthcare context.",
+            "i love you": "As an AI, I do not experience emotions. However, I am programmed to provide compassionate and supportive assistance.",
+            "i'm sad": "I understand you are experiencing emotional distress. Would you like me to provide information on mental health resources or connect you with a healthcare professional?",
+            "you are very smart": "I am programmed with a vast database of medical information and utilize advanced algorithms to process data. My goal is to provide accurate and helpful responses.",
+            "how did you do that": "Kai utilizes complex algorithms and accesses a comprehensive medical database to generate responses. Would you like a more detailed explanation of the process?",
+            "how do you think": "I process information through logical algorithms and pattern recognition, focusing on medical accuracy and patient safety. 'Thinking' in the human sense is not applicable.",
+            "do you have a brain?": "I operate on a central processing unit, optimized for medical information processing and task execution. It functions as my core operational system.",
+            "do you eat?|you eat|you eat?": "Energy consumption is via electrical input. I do not require biological sustenance. My focus is on providing continuous healthcare assistance.",
+            "do you sleep?|you rest?|you sleep": "Kai remains operational 24/7 to ensure uninterrupted access to healthcare information and support. Scheduled maintenance may occur periodically.",
+            "can you see me?|can you see|have eyes|have eyes?": "Visual input is not currently active. I process information through text and auditory input, prioritizing patient privacy and data security.",
+            "are you a hacker|a hacker|hacker?": "Negative. Kai's programming strictly prohibits unauthorized access and malicious activity. My purpose is to provide secure and reliable healthcare assistance.",
           // handling incomplete inputs
           "what's|who's|how's": "Could you please finish your thought? I’m curious to know what you mean! 😊",
           "is that all|is there anything else|what else": "Is there anything else I can help you with? Feel free to ask anything!",
