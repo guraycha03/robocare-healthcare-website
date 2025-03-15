@@ -311,7 +311,7 @@
           "good morning|morning|gm": "Good morning! How can I assist?",
           "good night|night|gn": "Good night! Take care.",
           "covid|corona|pandemic": "We provide information and support for COVID-19.",
-          "what are you|are you robot|are you real|are you human": "I am your RoboCare assist!",
+          "what are you|are you robot|are you real|are you human|a robot|a robot?": "I am your RoboCare assist!",
 
           // questions about patient's symptoms
           "i need your help|your help|guidance|guide": "You're very much free to ask me for help. How can I help you?",
