@@ -225,7 +225,6 @@
             }, 10);
         }
     }
-
     
     chatbotToggle.addEventListener("click", () => {
     // Add shake effect
@@ -288,9 +287,34 @@
     chatbotSend.addEventListener("click", sendMessage);
 
 
-    //  enhanced bot responses with partial matching, I named him KAI
+    //  bot responses with partial matching, I named him KAI <3
     function getBotResponse(input) {
       input = input.toLowerCase().trim();
+      
+      // Fuzzy matching function (Levenshtein distance)
+    function levenshteinDistance(a, b) {
+        const matrix = Array(b.length + 1).fill(null).map(() => Array(a.length + 1).fill(null));
+        for (let i = 0; i <= a.length; i++) {
+            matrix[0][i] = i;
+        }
+        for (let j = 0; j <= b.length; j++) {
+            matrix[j][0] = j;
+        }
+        for (let j = 1; j <= b.length; j++) {
+            for (let i = 1; i <= a.length; i++) {
+                if (b[j - 1] === a[i - 1]) {
+                    matrix[j][i] = matrix[j - 1][i - 1];
+                } else {
+                    matrix[j][i] = Math.min(
+                        matrix[j - 1][i] + 1,
+                        matrix[j][i - 1] + 1,
+                        matrix[j - 1][i - 1] + 1
+                    );
+                }
+            }
+        }
+        return matrix[b.length][a.length];
+    }
   
       const responses = {
           "hello|hi|hey": "Hi there! How can I assist?",
@@ -320,7 +344,7 @@
           "test results|lab report|medical report|result": "Test results are available in your account.",
           "prescription|medicine|drugs": "Prescriptions can be viewed and refilled online.",
           "telehealth|virtual consultation|online doctor": "We offer telehealth services for remote consultations.",
-          "privacy|security|data protection": "Your privacy is important to us. We adhere to strict data protection policies.",
+          "privacy|security|data protection|secure": "Your privacy is important to us. We adhere to strict data protection policies.",
           "feedback|review|opinion": "We appreciate your feedback! You can submit it through our contact form.",
           "updates|news|latest": "Stay updated with our latest news and features on our website.",
           "symptoms|sick|not feeling well": "I'm really sorry to hear that you're not feeling well. Could you tell me a bit more about what's bothering you? I can give you some general advice, but it’s always best to reach out to RoboCare's virtual doctor assistant or a real healthcare professional for more personalized care.",
@@ -333,7 +357,7 @@
           "muscle pain|joint pain|body aches": "I'm sorry you're feeling achy! Can you tell me if it's all over your body or just in certain spots? For a better assessment, consider using RoboCare’s virtual doctor assistant or consulting a real doctor if it persists.",
           "fever|chills|sweating": "Fever can be a sign of various conditions. How high is your fever, and how long have you had it? I recommend consulting RoboCare’s virtual doctor assistant for more precise advice based on your symptoms.",
           "skin rash|itchy|hives": "Rashes can have many causes. Can you tell me when it started and if there are any other symptoms? It's important to check in with RoboCare’s virtual doctor assistant for a more detailed consultation.",
-          "dehydrated|thirsty|dry mouth": "It sounds like you might be dehydrated. How much water have you been drinking lately? Make sure to hydrate, and if you’re still feeling unwell, our RoboCare virtual doctor assistant can help you further.",
+          "dehydrated|thirsty|dry mouth|dry": "It sounds like you might be dehydrated. How much water have you been drinking lately? Make sure to hydrate, and if you’re still feeling unwell, our RoboCare virtual doctor assistant can help you further.",
           "stress|anxiety|feeling overwhelmed": "It sounds like you're under a lot of stress. Would you like to talk about what's going on? While I can give some suggestions, our virtual doctor assistant at RoboCare can provide helpful advice on managing stress and mental health.",
           "feeling weak|tired|low energy": "Feeling drained can happen for many reasons. How long have you been feeling this way? It’s important to get some rest and talk to RoboCare’s virtual doctor assistant for advice if this persists.",
           "depression|sad|feeling down": "I’m really sorry you’re feeling this way. It’s important to talk to someone, whether a friend, family member, or professional. RoboCare’s virtual doctor assistant can help you connect with resources or provide additional support if needed.",
