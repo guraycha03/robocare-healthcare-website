@@ -573,19 +573,14 @@
         });
     });
 
-
-
-
       //contact form
       document.addEventListener("DOMContentLoaded", function () {
         const contactForm = document.getElementById("fake-contact-form");
         const loadingMessage = document.querySelector(".loading");
         const errorMessage = document.querySelector(".error-message");
         const sentMessage = document.querySelector(".sent-message");
-    
         contactForm.addEventListener("submit", function (event) {
             event.preventDefault(); 
-    
             // Show loading
             loadingMessage.style.display = "block";
             errorMessage.style.display = "none";
@@ -604,5 +599,4 @@
             }, 2000);
         });
     });
-    
   });
